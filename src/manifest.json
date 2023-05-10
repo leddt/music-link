@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Music Link",
+    "description": "Automatically go to your preferred music streaming platform when following links to other platforms.",
+    "version": "1.0",
+    "action": {
+        "default_icon": {
+            "16": "images/icon16.png",
+            "24": "images/icon24.png",
+            "32": "images/icon32.png"
+        },
+        "default_title": "Music Link"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [ "tabs" ],
+    "host_permissions": [
+        "https://api.song.link/"
+    ]
+}
