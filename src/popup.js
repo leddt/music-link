@@ -12,7 +12,7 @@ for (const [id, service] of Object.entries(services)) {
     preferredServiceSelect.appendChild(option);
 
     const label = document.createElement("label");
-    label.classList.add("flex", "gap-1");
+    label.classList.add("flex", "gap-1", "text-xs");
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = `ignore-${id}`;

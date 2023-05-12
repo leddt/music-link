@@ -7,20 +7,27 @@
     <script src="/lib/tailwind.js"></script>
 </head>
 <body>
-    <div class="w-80 flex flex-col gap-4 p-4">
-        <h1 class="text-xl font-bold">Music Link</h1>
-        <div class="flex flex-col gap-1">
-            <label class="text-lg font-semibold" for="preferredService">Preferred music service</label>
+    <div class="w-80">
+        <div class="px-4 py-2 bg-violet-700 text-slate-100">
+            <h1 class="text-xl font-bold">Music Link</h1>
+        </div>
+        <div class="px-4 py-2 bg-slate-100 border-b-2 flex flex-col gap-1">
+            <label class="text-lg text-violet-700 font-semibold" for="preferredService">Preferred music service</label>
             <p class="text-sm">Go to this service if the content is available:</p>
             <select id="preferredService">
                 <option selected disabled>Pick one...</option>
             </select>
         </div>
-        <div id="ignoredServices" class="flex flex-col gap-1">
-            <label class="text-lg font-semibold">Ignored services</label>
+        <div id="ignoredServices" class="px-4 py-2 bg-slate-100 flex flex-col gap-1">
+            <label class="text-lg text-violet-700 font-semibold">Ignored services</label>
             <p class="text-sm">Don't redirect when visiting these services:</p>
         </div>
-        <div class="text-xs">Powered by <a class="text-blue-500 hover:text-blue-800 hover:underline" href="https://odesli.co/" target="_blank">Songlink/Odesli</a></div>
+        <div class="px-4 py-2 bg-slate-300 text-slate-600 text-xs text-right">
+            Powered by 
+            <a class="text-blue-600 hover:text-blue-800 hover:underline" href="https://odesli.co/" target="_blank">
+                Songlink/Odesli
+            </a>
+        </div>
     </div>
     
     <script type="module" src="popup.js"></script>
