@@ -12,7 +12,8 @@
         "default_title": "Music Link"
     },
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "background.js",
+        "type": "module"
     },
     "permissions": [ "tabs" ],
     "host_permissions": [

@@ -1,9 +1,10 @@
+import services from "./services.js";
+
 const targetService = "youtubeMusic";
 
-const domains = [
-    "https://open.spotify.com",
-    "https://music.apple.com"
-];
+const domains = Object.entries(services)
+    .filter(([key, _]) => key !== targetService)
+    .map(([_, value]) => value.url);
 
 const cache = {}
 
