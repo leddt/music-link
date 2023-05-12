@@ -36,6 +36,8 @@ function getLinks(url) {
                     throw new Error("Links request failed")
                 }
 
+                setTimeout(() => delete cache[url], 3600 * 1000)
+
                 return response.json();
             })
             .catch(() => delete cache[url]);
