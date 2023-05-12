@@ -27,6 +27,10 @@ export default {
         name: "Pandora",
         url: "https://www.pandora.com/"
     },
+    soundcloud: {
+        name: "SoundCloud",
+        url: "https://soundcloud.com/"
+    },
     spotify: {
         name: "Spotify",
         url: "https://open.spotify.com/"

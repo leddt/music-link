@@ -9,13 +9,14 @@
             "24": "images/icon24.png",
             "32": "images/icon32.png"
         },
-        "default_title": "Music Link"
+        "default_title": "Music Link",
+        "default_popup": "popup.html"
     },
     "background": {
         "service_worker": "background.js",
         "type": "module"
     },
-    "permissions": [ "tabs" ],
+    "permissions": [ "storage", "tabs" ],
     "host_permissions": [
         "https://api.song.link/"
     ]

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Link</title>
+    <script src="/lib/tailwind.js"></script>
+</head>
+<body>
+    <div class="w-80 flex flex-col gap-4 p-4">
+        <h1 class="text-xl font-bold">Music Link</h1>
+        <div class="flex flex-col gap-1">
+            <label class="text-lg font-semibold" for="preferredService">Preferred music service</label>
+            <p class="text-sm">Go to this service if the content is available:</p>
+            <select id="preferredService">
+                <option selected disabled>Pick one...</option>
+            </select>
+        </div>
+        <div id="ignoredServices" class="flex flex-col gap-1">
+            <label class="text-lg font-semibold">Ignored services</label>
+            <p class="text-sm">Don't redirect when visiting these services:</p>
+        </div>
+    </div>
+    
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
