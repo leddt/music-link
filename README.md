@@ -2,4 +2,4 @@ This is a simple Chrome extension that redirects you to your favourite streaming
 
 For example, if you subscribe to YouTube Music, you can be redirected to the correct page on that service when visiting a Spotify link.
 
-Powered by [Songlink/Odelsi](https://odesli.co/).
+Powered by [Songlink/Odesli](https://odesli.co/).
