@@ -7,7 +7,7 @@ chrome.tabs.onUpdated.addListener(async function(tabId, changeInfo, tab) {
     if (changeInfo.status !== "loading") return;
     if (!tab.url) return;
 
-    const { preferredService, ignoredServices } = await getPreferences();
+    const { preferredService, openNativeApp, ignoredServices } = await getPreferences();
 
     const domains = Object.entries(services)
         .filter(([key, _]) => key !== preferredService)
@@ -18,11 +18,18 @@ chrome.tabs.onUpdated.addListener(async function(tabId, changeInfo, tab) {
 
     try {
         const data = await getLinks(tab.url);
+        const platform = data.linksByPlatform[preferredService];
 
-        if (data.linksByPlatform[preferredService]) {
-            chrome.tabs.update(tabId, {
-                url: data.linksByPlatform[preferredService].url
-            })
+        if (platform) {
+            if (openNativeApp && platform.nativeAppUriDesktop) {
+                chrome.tabs.update(tabId, {
+                    url: platform.nativeAppUriDesktop
+                });
+            } else {
+                chrome.tabs.update(tabId, {
+                    url: platform.url
+                });
+            }
         }
     } catch {}
 })

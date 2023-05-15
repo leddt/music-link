@@ -1,8 +1,10 @@
 import services from "./services.js";
-import { getPreferences, setPreferredService, addIgnoredService, removeIgnoredService } from "./preferences.js";
+import { getPreferences, setPreferredService, setOpenNativeApp, addIgnoredService, removeIgnoredService } from "./preferences.js";
 
 const preferredServiceSelect = document.querySelector("#preferredService");
 const ignoredServicesContainer = document.querySelector("#ignoredServices");
+const nativeOptionsContainer = document.querySelector("#nativeOptions");
+const nativeCheckbox = document.querySelector("#nativeCheckbox");
 
 for (const [id, service] of Object.entries(services)) {
     const option = document.createElement("option");
@@ -27,12 +29,21 @@ for (const [id, service] of Object.entries(services)) {
 preferredServiceSelect.addEventListener("change", (ev) => {
     const value = ev.target.value;
     setPreferredService(value);
+    showNativeOptionsIfSupported(value);
 });
 
-getPreferences().then(({ preferredService, ignoredServices }) => {
+nativeCheckbox.addEventListener("change", (ev) => {
+    const value = ev.target.checked;
+    setOpenNativeApp(value);
+});
+
+getPreferences().then(({ preferredService, openNativeApp, ignoredServices }) => {
     if (preferredService) {
         preferredServiceSelect.value = preferredService;
+        showNativeOptionsIfSupported(preferredService);
     }
+
+    nativeCheckbox.checked = openNativeApp;
 
     for (const service of ignoredServices) {
         const checkbox = document.querySelector(`#ignore-${service}`)
@@ -46,4 +57,9 @@ function handleIgnoredServiceChanged(ev) {
     } else {
         removeIgnoredService(ev.target.value);
     }
+}
+
+function showNativeOptionsIfSupported(serviceId) {
+    const supportsNativeApp = services[serviceId].supportsNativeApp ?? false;
+    nativeOptionsContainer.classList.toggle("hidden", !supportsNativeApp);
 }

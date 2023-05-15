@@ -9,7 +9,8 @@ export default {
     },
     appleMusic: {
         name: "Apple Music",
-        url: "https://music.apple.com/"
+        url: "https://music.apple.com/",
+        supportsNativeApp: true
     },
     audiomack: {
         name: "Audiomack",
@@ -33,7 +34,8 @@ export default {
     },
     spotify: {
         name: "Spotify",
-        url: "https://open.spotify.com/"
+        url: "https://open.spotify.com/",
+        supportsNativeApp: true
     },
     tidal: {
         name: "Tidal",

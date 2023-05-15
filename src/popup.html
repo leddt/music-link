@@ -17,6 +17,15 @@
             <select id="preferredService">
                 <option selected disabled>Pick one...</option>
             </select>
+            <div id="nativeOptions">
+                <label class="flex gap-1 text-xs">
+                    <input id="nativeCheckbox" type="checkbox" />
+                    <div>
+                        <p class="mb-1">Open content in native application</p>
+                        <p class="text-slate-600">This will only work if the native app for this service is installed on your computer.</p>
+                    </div>
+                </label>
+            </div>
         </div>
         <div id="ignoredServices" class="px-4 py-2 bg-slate-100 flex flex-col gap-1">
             <label class="text-lg text-violet-700 font-semibold">Ignored services</label>

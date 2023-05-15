@@ -1,16 +1,24 @@
 const defaultPreferredService = "youtubeMusic";
+const defaultOpenNativeApp = false;
 const defaultIgnoredServices = ["soundcloud"];
 
 export async function getPreferences() {
     const { preferredService, ignoredServices } = await chrome.storage.sync.get(["preferredService", "ignoredServices"]);
+    const { openNativeApp } = await chrome.storage.local.get(["openNativeApp"]);
+
     return { 
-        preferredService: preferredService || defaultPreferredService, 
-        ignoredServices: ignoredServices || defaultIgnoredServices
+        preferredService: preferredService ?? defaultPreferredService, 
+        openNativeApp: openNativeApp ?? defaultOpenNativeApp,
+        ignoredServices: ignoredServices ?? defaultIgnoredServices
     };
 }
 
 export async function setPreferredService(preferredService) {
     await chrome.storage.sync.set({ preferredService });
+}
+
+export async function setOpenNativeApp(openNativeApp) {
+    await chrome.storage.local.set({ openNativeApp })
 }
 
 export async function addIgnoredService(service) {
