@@ -3,6 +3,9 @@
     "name": "Music Link",
     "description": "Automatically go to your preferred music streaming platform when following links to other platforms.",
     "version": "1.2",
+    "icons": {
+        "48": "images/icon48.png"
+    },
     "action": {
         "default_icon": {
             "16": "images/icon16.png",
