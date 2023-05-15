@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Music Link",
     "description": "Automatically go to your preferred music streaming platform when following links to other platforms.",
-    "version": "1.2",
+    "version": "1.3",
     "icons": {
         "48": "images/icon48.png"
     },
